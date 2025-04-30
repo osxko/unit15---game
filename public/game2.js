@@ -4,8 +4,7 @@ let score = 0;
 let bgImage;
 let runSprite, jumpSprite, slideSprite; 
 let hazardCooldown = 0;
- 
- 
+
 function preload (){
   bgImage = loadImage("background.png"); 
   runSprite = loadImage("imageRun.png"); 
@@ -15,9 +14,9 @@ function preload (){
   lavaBlock = loadImage("lava.png");
   wallsBlock = loadImage("lavaland.png");
   iceBlock = loadImage("iceBlock.png");
-  portal = loadImage("portal.png");
 }
- 
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   world.gravity.y = 25;
@@ -37,8 +36,8 @@ function setup() {
   walls.collider = 'static';
   walls.image = wallsBlock;
   walls.image.scale = 0.398;
- 
- 
+
+
   hazards = new Group();
   hazards.w = 50;
   hazards.h = 10;
@@ -47,65 +46,62 @@ function setup() {
   hazards.color = "orange"; // hazards
   hazards.image = lavaBlock;
   
-  
   // Adjust the scale dynamically based on the image's original dimensions
   hazards.image.scale = hazards.w / lavaBlock.width; // Scale width
   hazards.image.scaleY = (hazards.h / 2) / lavaBlock.height; // Scale height to half of hazards.h
 
- 
-  //  (coins)
-  collectibles = new Group();
-  collectibles.w = 20;
-  collectibles.h = 20;
-  collectibles.tile = "C";
-  collectibles.collider = 'none';
-  collectibles.color = "yellow"; 
-  collectibles.image = loadImage("goldCoin1.png");
-// end game
-  collectiblesE = new Group();
-  collectiblesE.w = 20;
-  collectiblesE.h = 20;
-  collectiblesE.tile = "E";
-  collectiblesE.collider = 'none';
-  collectiblesE.color = "Green";
-  collectiblesE.image = loadImage("portal.png");
-  collectiblesE.image.scale = 0.161;
+   //  (coins)
+   collectibles = new Group();
+   collectibles.w = 20;
+   collectibles.h = 20;
+   collectibles.tile = "C";
+   collectibles.collider = 'none';
+   collectibles.color = "yellow"; 
+   collectibles.image = loadImage("goldCoin1.png");
+ // end game
+ collectiblesE = new Group();
+ collectiblesE.w = 20;
+ collectiblesE.h = 20;
+ collectiblesE.tile = "E";
+ collectiblesE.collider = 'none';
+ collectiblesE.color = "Green";
+ collectiblesE.image = loadImage("portal.png");
+ collectiblesE.image.scale = 0.161;
 
- 
- //  the blue ones
-movingPlatforms = new Group();
-movingPlatforms.w = 50;
-movingPlatforms.h = 6;
-movingPlatforms.tile = "M";
-movingPlatforms.collider = 'static';
-movingPlatforms.color = "blue"; 
-movingPlatforms.image = iceBlock;
+  //  the blue ones
+  movingPlatforms = new Group();
+  movingPlatforms.w = 60;
+  movingPlatforms.h = 6;
+  movingPlatforms.tile = "M";
+  movingPlatforms.collider = 'static';
+  movingPlatforms.color = "blue"; 
+  movingPlatforms.image = iceBlock;
 
 movingPlatforms.image.scale = movingPlatforms.w / iceBlock.width; 
 movingPlatforms.image.scaleY = movingPlatforms.h / iceBlock.height; 
 
 
  
- 
+
   new Tiles(
-    ["==========",
-     "=........=",
-     "=...C....=",
-     "=...=H=..=",
-     "=..====..=",
-     "=.MMC....=",
-     "=.EMM...==",
-     "=......===",
-     '=.C...====',
-     "==H=======",
-     "=========="],
+    ["============",
+     "=..........=",
+     "=..........=",
+     "=..===.....=",
+     "====C...C..=", 
+     "=..=====H=.=",
+     "=......MMMM=",
+     '=....MM....=',
+     "=..M.......=",
+     "=EM........=",
+     "=HHHHHHH===="],
     50,
     50,
     walls.w,
     walls.h
   );
 }
- 
+
 function draw() {
   if (bgImage) {
     background(bgImage);  // backg
@@ -190,4 +186,5 @@ if (!player.colliding(movingPlatforms)) {
 
  fill(255);
  textSize(20);
-  text("Score: " + score, camera.x - width / 2 + 20, camera.y - height / 2 + 20);}
+ // score
+ text("Score: " + score, camera.x - width / 2 + 20, camera.y - height / 2 + 20);}// Reset when not on 

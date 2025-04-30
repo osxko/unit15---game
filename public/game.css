@@ -1,0 +1,55 @@
+@font-face{
+    font-family: "new_cyborg";
+    src: url("newcyborg.ttf");
+  }
+  body {
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 20px;
+    background-image: url('background.png');
+    background-size: cover;
+}
+h1 {
+    font-family: "new_cyborg" ;
+    font-size: 100px;
+    margin-bottom: 50px;
+    color: #464545;
+}
+h2 {
+    font-family: "new_cyborg" ;
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: rgb(90, 89, 89)}
+.container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    max-width: 250px;
+    width: 100%;
+    
+}
+.game-thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #464545;
+    background-color: rgb(90, 89, 89);
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none; 
+    color: inherit; 
+}
+
+
+.description {
+    font-family: "new_cyborg" ;
+    font-size: 30px;
+    color: #000;
+    margin-top: 5px;
+    text-align: center;
+}
